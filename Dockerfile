@@ -1,5 +1,5 @@
 
-FROM i386/python:2.7
+FROM python:2.7
 EXPOSE 5000
 LABEL maintainer "gaetancollaud@gmail.com"
 
