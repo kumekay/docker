@@ -8,7 +8,7 @@ ARG tag=master
 
 WORKDIR /opt/octoprint
 
-RUN apt update && apt install wget build-essential
+RUN apt update && apt install wget build-essential git
 # In case of alpine
 #RUN apk update && apk upgrade \
 #    && apk add --no-cache bash git openssh gcc\
