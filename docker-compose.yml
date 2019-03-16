@@ -1,4 +1,6 @@
 version: "2"
+volumes:
+  config:
 services:
   octoprint:
     build: .
@@ -9,4 +11,4 @@ services:
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
     volumes:
-      - ./config:/home/octoprint/.octoprint
+      - config:/home/octoprint/.octoprint
