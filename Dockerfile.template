@@ -1,20 +1,15 @@
 
 FROM balenalib/%%BALENA_MACHINE_NAME%%-python:2-stretch-run
 EXPOSE 5000
-LABEL maintainer "gaetancollaud@gmail.com"
+LABEL maintainer "po@kumekay.com"
 
 ENV CURA_VERSION=15.04.6
 ARG tag=master
 
 WORKDIR /opt/octoprint
 
-RUN apt update && apt install wget build-essential git
+RUN apt update && apt install wget build-essential git avrdude
 RUN pip install virtualenv
-# In case of alpine
-#RUN apk update && apk upgrade \
-#    && apk add --no-cache bash git openssh gcc\
-#		&& pip install virtualenv \
-#		&& rm -rf /var/cache/apk/*
 
 #install ffmpeg
 RUN cd /tmp \
