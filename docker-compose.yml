@@ -1,6 +1,7 @@
 version: "2"
 volumes:
   config:
+  venv:
 services:
   octoprint:
     build: .
@@ -12,3 +13,4 @@ services:
       - /dev/ttyACM0:/dev/ttyACM0
     volumes:
       - config:/home/octoprint/.octoprint
+      - venv:/opt/octoprint/venv
