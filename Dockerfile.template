@@ -3,7 +3,6 @@ FROM balenalib/%%BALENA_MACHINE_NAME%%-python:2-stretch-run
 EXPOSE 5000
 LABEL maintainer "po@kumekay.com"
 
-ENV CURA_VERSION=15.04.6
 ARG tag=master
 
 WORKDIR /opt/octoprint
@@ -16,16 +15,6 @@ RUN cd /tmp \
 	&& wget -O ffmpeg.tar.xz https://s3.eu-central-1.amazonaws.com/hortio-binaries/ffmpeg-4.0.3-32bit-static.tar.xz \
 	&& mkdir -p /opt/ffmpeg \
 	&& tar xvf ffmpeg.tar.xz -C /opt/ffmpeg --strip-components=1 \
-	&& rm -Rf /tmp/*
-
-#install Cura
-RUN cd /tmp \
-	&& wget https://github.com/Ultimaker/CuraEngine/archive/${CURA_VERSION}.tar.gz \
-	&& tar -zxf ${CURA_VERSION}.tar.gz \
-	&& cd CuraEngine-${CURA_VERSION} \
-	&& mkdir build \
-	&& make \
-	&& mv -f ./build /opt/cura/ \
 	&& rm -Rf /tmp/*
 
 #Create an octoprint user
